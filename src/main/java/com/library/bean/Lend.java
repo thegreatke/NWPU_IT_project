@@ -12,7 +12,7 @@ public class Lend implements Serializable {
     private long readerId;
     private Date lendDate;
     private Date backDate;
-    private Data backDateDeadline;
+    private Date backDateDeadline;
     private long fineMoney;
 
 }

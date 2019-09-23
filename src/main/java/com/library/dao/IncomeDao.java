@@ -1,6 +1,7 @@
 package com.library.dao;
 
 
+import com.library.bean.Income;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -16,10 +17,12 @@ public class IncomeDao {
     private SqlSessionTemplate sqlSessionTemplate;
 
 
-    public ArrayList<ReaderInfo> getAllReaderInfo() {
-        List<ReaderInfo> result = sqlSessionTemplate.selectList(NAMESPACE + "getAllReaderInfo");
-        return (ArrayList<ReaderInfo>) result;
+    public ArrayList<Income> getAllIncome() {
+        List<Income> result = sqlSessionTemplate.selectList(NAMESPACE + "getAllIncome");
+        return (ArrayList<Income>) result;
     }
+
+
 
 
 
