@@ -36,7 +36,7 @@ public class OrderService {
 
           }
 
-    // TODO: 2019/9/23  实现预定后，规定时间内读者前来借书成功，让某一条预定记录变成一条借书记录
+    // TODO: 2019/9/23  实现预定后，规定时间内读者前来借书成功，让某一条预定记录,生成一条借书记录，存到lendList表中去，在此预定表中删除
     //      public boolean finishOrder(Long orderId , Long reader_id) {
     //        return ??? > 0;
     //    }
