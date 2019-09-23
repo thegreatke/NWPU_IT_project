@@ -1,8 +1,11 @@
 com\library\utils\TransCodingUtil.class
 com\library\utils\MD5Util.class
+com\library\service\IncomeService.class
+com\library\service\NoticeService.class
 com\library\dao\OrderDao.class
 com\library\config\WebConfig.class
 com\library\service\OrderService.class
+com\library\service\DeleteBookService.class
 com\library\utils\TimeUtil.class
 com\library\utils\BuildArticleTabloidUtil.class
 com\library\bean\Order.class
