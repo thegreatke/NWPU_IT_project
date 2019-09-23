@@ -22,11 +22,11 @@ public class BookService {
 
     public boolean matchBook(String searchWord) {
         return bookDao.matchBook(searchWord) > 0;
-    }
+    }// 判断大于0代表的是否执行成功
 
     public boolean addBook(Book book) {
         return bookDao.addBook(book) > 0;
-    }
+    }//返回的int是数据库执行操作后影响的行数
 
     public Book getBook(Long bookId) {
         return bookDao.getBook(bookId);

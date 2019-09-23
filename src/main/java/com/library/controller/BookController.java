@@ -34,7 +34,6 @@ public class BookController {
     @ResponseBody
     @RequestMapping("/test")
     public String getTest(Model model){
-
         Map map = new HashMap();
         List<Book> testVos = new ArrayList<>();
         Book book = new Book();
@@ -51,7 +50,6 @@ public class BookController {
 
         String test = model.toString();
         return test;
-
     }
 
 
