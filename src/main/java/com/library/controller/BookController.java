@@ -5,11 +5,13 @@ import com.library.bean.Lend;
 import com.library.bean.ReaderCard;
 import com.library.service.BookService;
 import com.library.service.LendService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -38,6 +40,7 @@ public class BookController {
             return new Date();
         }
     }
+    @ResponseBody
     @RequestMapping("/test")
     public String getTest(Model model){
 
@@ -54,7 +57,11 @@ public class BookController {
         map.put("name", "百度");
         map.put("testVos", testVos);
         model.addAllAttributes(map);
-        return "test";
+
+        String test = model.toString();
+
+
+        return test;
 
 
     }
@@ -87,13 +94,25 @@ public class BookController {
         }
     }
 
-    @RequestMapping("/admin_books.html")
-    public ModelAndView adminBooks() {
+//    @RequestMapping("/admin_books.html")
+//    public ModelAndView adminBooks() {
+//        ArrayList<Book> books = bookService.getAllBooks();
+//        ModelAndView modelAndView = new ModelAndView("admin_books");
+//        modelAndView.addObject("books", books);
+//        return modelAndView;
+//    }
+
+    @RequestMapping ("/admin_books.html")
+    public String adminBooks(Model model) {
         ArrayList<Book> books = bookService.getAllBooks();
-        ModelAndView modelAndView = new ModelAndView("admin_books");
-        modelAndView.addObject("books", books);
-        return modelAndView;
+        model.addAttribute("books", books);
+        return "admin_books";
     }
+
+
+
+
+
 
     @RequestMapping("/book_add.html")
     public ModelAndView addBook() {
