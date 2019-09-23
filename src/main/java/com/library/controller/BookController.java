@@ -7,6 +7,7 @@ import com.library.service.BookService;
 import com.library.service.LendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,8 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 @Controller
 public class BookController {
@@ -24,6 +24,10 @@ public class BookController {
     private BookService bookService;
     @Autowired
     private LendService lendService;
+
+
+
+
 
     private Date getDate(String pubstr) {
         try {
@@ -34,6 +38,30 @@ public class BookController {
             return new Date();
         }
     }
+    @RequestMapping("/test")
+    public String getTest(Model model){
+
+        Map map = new HashMap();
+        List<Book> testVos = new ArrayList<>();
+        Book book = new Book();
+        book.setName("fulei");
+        Book book01 = new Book();
+        book01.setName("wangmeng");
+        testVos.add(book);
+        testVos.add(book01);
+        map.put("user", "love");
+        map.put("url", "http://www.baidu.com/");
+        map.put("name", "百度");
+        map.put("testVos", testVos);
+        model.addAllAttributes(map);
+        return "test";
+
+
+    }
+
+
+
+
 
     @RequestMapping("/querybook.html")
     public ModelAndView queryBookDo(String searchWord) {
