@@ -8,11 +8,14 @@ import java.util.Date;
 public class Income {
 
     private long BookId;
-    private String type;
+    private Type  type;
     private long readerId;
     private float value;
     private Date date_time;
 
 
+    private enum Type{
+        fine,SUMMER
+    }
 
 }
