@@ -15,4 +15,6 @@ public class delete_list implements Serializable {
     type = 1,代表下架那本书的所有副本，那本书的副本变为0，并且下架
      */
     private long deleteType;
+    private String deleteReason;
+    
 }
