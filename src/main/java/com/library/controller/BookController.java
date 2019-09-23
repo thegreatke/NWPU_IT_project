@@ -31,15 +31,6 @@ public class BookController {
 
 
 
-    private Date getDate(String pubstr) {
-        try {
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            return df.parse(pubstr);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return new Date();
-        }
-    }
     @ResponseBody
     @RequestMapping("/test")
     public String getTest(Model model){
@@ -59,10 +50,7 @@ public class BookController {
         model.addAllAttributes(map);
 
         String test = model.toString();
-
-
         return test;
-
 
     }
 
@@ -194,5 +182,17 @@ public class BookController {
         modelAndView.addObject("books", books);
         modelAndView.addObject("myLendList", myLendList);
         return modelAndView;
+    }
+
+
+                    //移动至utils目录中
+    private Date getDate(String pubstr) {
+        try {
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            return df.parse(pubstr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return new Date();
+        }
     }
 }

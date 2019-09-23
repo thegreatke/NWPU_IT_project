@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class ReaderCard implements Serializable {
 
-    private long reader_id;
+    private long ReaderId;
     private String username;
     private String password;
 
