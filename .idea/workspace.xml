@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5abb68b0-055c-4f30-8b50-7bdf93a491c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/DeleteBookDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/MyBatis/deletebook.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/bean/delete_list.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/bean/delete_list.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/DeleteBookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/DeleteBookDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/service/DeleteBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/service/DeleteBookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MyBatis/book.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MyBatis/book.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyBatis/admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyBatis/admin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyBatis/book.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyBatis/book.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MyBatis/order.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MyBatis/order.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/bean/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/bean/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/bean/Lend.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/bean/Lend.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/bean/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/bean/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/bean/ReaderCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/bean/ReaderCard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/bean/ReaderInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/bean/ReaderInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/controller/LendController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/controller/LendController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/controller/ReaderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/controller/ReaderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dao/AdminDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dao/AdminDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/dao/ReaderCardDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/dao/ReaderCardDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/service/BookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/service/BookService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/service/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/service/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,10 +31,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Tag Library Descriptor" />
         <option value="spring-beans.schema" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -149,7 +133,7 @@
       <updated>1569047688350</updated>
       <workItem from="1569047690540" duration="69000" />
       <workItem from="1569047887454" duration="66000" />
-      <workItem from="1569229289228" duration="10979000" />
+      <workItem from="1569229289228" duration="11684000" />
     </task>
     <servers />
   </component>
