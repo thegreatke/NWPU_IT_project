@@ -37,7 +37,8 @@ public class ReaderCardDao {
 
     public int addReaderCard(final ReaderInfo readerInfo, final String password) {
         String username = readerInfo.getName();
-        long reader_id = readerInfo.getReaderId();
+        long reader_id = readerInfo.getReader_id();
+        //long reader_id = readerInfo.getReaderId();
         Map<String, Object> map = new HashMap<>();
         map.put("reader_id", reader_id);
         map.put("username", username);
