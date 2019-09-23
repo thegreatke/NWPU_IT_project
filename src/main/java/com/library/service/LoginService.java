@@ -18,8 +18,15 @@ public class LoginService {
         return  readerCardDao.getIdMatchCount(readerId, password)>0;
     }
 
+    /*
+    adminDao.getUsername();  for admin
+    adminDao.getLibraname(); for librarian
+     */
     public String getAdminUsername(long adminId) {
         return adminDao.getUsername(adminId);
+    }
+    public String getLibrarianUsername(long adminId) {
+        return adminDao.getLibraname(adminId);
     }
 
     public ReaderCard findReaderCardByReaderId(long readerId){
@@ -27,6 +34,10 @@ public class LoginService {
     }
 
     public boolean hasMatchAdmin(long adminId,String password){
+        return adminDao.getMatchCount(adminId, password) == 0;
+    }
+
+    public boolean hasMatchLibrarian(long adminId,String password){
         return adminDao.getMatchCount(adminId, password) == 1;
     }
 
@@ -36,6 +47,7 @@ public class LoginService {
     public String getAdminPassword(long adminId){
         return adminDao.getPassword(adminId);
     }
+
 
     public boolean readerRePassword(long readerId, String newPassword) {
         return readerCardDao.resetPassword(readerId, newPassword) > 0;

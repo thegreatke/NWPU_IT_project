@@ -37,4 +37,8 @@ public class AdminDao {
         return sqlSessionTemplate.selectOne(NAMESPACE + "getUsername", admin_id);
     }
 
+    public String getLibraname(final long admin_id) {
+        return sqlSessionTemplate.selectOne(NAMESPACE + "getLibraname", admin_id);
+    }
+
 }

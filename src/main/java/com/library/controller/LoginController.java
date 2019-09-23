@@ -49,17 +49,32 @@ public class LoginController {
         String passwd = request.getParameter("passwd");
         boolean isReader = loginService.hasMatchReader(id, passwd);
         boolean isAdmin = loginService.hasMatchAdmin(id, passwd);
+        boolean isLibrarian = loginService.hasMatchLibrarian(id,passwd);
         HashMap<String, String> res = new HashMap<>();
         if (isAdmin) {
             Admin admin = new Admin();
-            admin.setAdminId(id);
+            admin.setAdmin_id(id);
+            // admin.setadmin_id(id);
             admin.setPassword(passwd);
+            admin.setRoles(0);
             String username = loginService.getAdminUsername(id);
             admin.setUsername(username);
             request.getSession().setAttribute("admin", admin);
             res.put("stateCode", "1");
-            res.put("msg", "管理员登陆成功！");
-        } else if (isReader) {
+            res.put("msg", "超级管理员登陆成功！");
+        }
+        else if (isLibrarian) {
+            Admin admin = new Admin();
+            admin.setAdmin_id(id);
+            admin.setPassword(passwd);
+            admin.setRoles(1);
+            String username = loginService.getLibrarianUsername(id);
+            admin.setUsername(username);
+            request.getSession().setAttribute("admin", admin);
+            res.put("stateCode", "3");
+            res.put("msg", "图书管理员登陆成功！");
+        }
+        else if (isReader) {
             ReaderCard readerCard = loginService.findReaderCardByReaderId(id);
             request.getSession().setAttribute("readercard", readerCard);
             res.put("stateCode", "2");
@@ -89,7 +104,8 @@ public class LoginController {
     @RequestMapping("/admin_repasswd_do")
     public String reAdminPasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, String reNewPasswd, RedirectAttributes redirectAttributes) {
         Admin admin = (Admin) request.getSession().getAttribute("admin");
-        long id = admin.getAdminId();
+        long id = admin.getAdmin_id();
+    //    long id = admin.getAdminId();
         String password = loginService.getAdminPassword(id);
         if (password.equals(oldPasswd)) {
             if (loginService.adminRePassword(id, newPasswd)) {
@@ -113,7 +129,8 @@ public class LoginController {
     @RequestMapping("/reader_repasswd_do")
     public String reReaderPasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, String reNewPasswd, RedirectAttributes redirectAttributes) {
         ReaderCard reader = (ReaderCard) request.getSession().getAttribute("readercard");
-        long id = reader.getReaderId();
+        long id = reader.getReader_id();
+        //long id = reader.getReaderId();
         String password = loginService.getReaderPassword(id);
         if (password.equals(oldPasswd)) {
             if (loginService.readerRePassword(id, newPasswd)) {

@@ -16,6 +16,8 @@ public class BookService {
         return bookDao.queryBook(searchWord);
     }
 
+
+
     public ArrayList<Book> getAllBooks() {
         return bookDao.getAllBooks();
     }
