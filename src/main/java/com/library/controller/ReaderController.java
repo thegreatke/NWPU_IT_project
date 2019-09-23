@@ -39,7 +39,7 @@ public class ReaderController {
         }
         readerInfo.setAddress(address);
         readerInfo.setName(name);
-        readerInfo.setReader_id(readerId);
+        readerInfo.setReaderId(readerId);
         //readerInfo.setReaderId(readerId);
         readerInfo.setPhone(phone);
         readerInfo.setSex(sex);
@@ -69,7 +69,7 @@ public class ReaderController {
     @RequestMapping("/reader_info.html")
     public ModelAndView toReaderInfo(HttpServletRequest request) {
         ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
-        ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReader_id());
+        ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
         //ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
         ModelAndView modelAndView = new ModelAndView("reader_info");
         modelAndView.addObject("readerinfo", readerInfo);
@@ -106,7 +106,7 @@ public class ReaderController {
     public String readerInfoAddDo(String name, String sex, String birth, String address, String phone, String password, RedirectAttributes redirectAttributes) {
         ReaderInfo readerInfo = getReaderInfo(0, name, sex, birth, address, phone);
         long readerId = readerInfoService.addReaderInfo(readerInfo);
-        readerInfo.setReader_id(readerId);
+        readerInfo.setReaderId(readerId);
         //readerInfo.setReaderId(readerId);
         if (readerId > 0 && readerCardService.addReaderCard(readerInfo, password)) {
             redirectAttributes.addFlashAttribute("succ", "添加读者信息成功！");
@@ -120,7 +120,7 @@ public class ReaderController {
     public ModelAndView readerInfoEditReader(HttpServletRequest request) {
         ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
 
-        ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReader_id());
+        ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
         //ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
         ModelAndView modelAndView = new ModelAndView("reader_info_edit");
         modelAndView.addObject("readerinfo", readerInfo);
@@ -130,11 +130,11 @@ public class ReaderController {
     @RequestMapping("reader_edit_do_r.html")
     public String readerInfoEditDoReader(HttpServletRequest request, String name, String sex, String birth, String address, String phone, RedirectAttributes redirectAttributes) {
         ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
-        ReaderInfo readerInfo = getReaderInfo(readerCard.getReader_id(), name, sex, birth, address, phone);
+        ReaderInfo readerInfo = getReaderInfo(readerCard.getReaderId(), name, sex, birth, address, phone);
         //ReaderInfo readerInfo = getReaderInfo(readerCard.getReaderId(), name, sex, birth, address, phone);
         if (readerInfoService.editReaderInfo(readerInfo) && readerInfoService.editReaderCard(readerInfo)) {
 
-            ReaderCard readerCardNew = loginService.findReaderCardByReaderId(readerCard.getReader_id());
+            ReaderCard readerCardNew = loginService.findReaderCardByReaderId(readerCard.getReaderId());
             //ReaderCard readerCardNew = loginService.findReaderCardByReaderId(readerCard.getReaderId());
             request.getSession().setAttribute("readercard", readerCardNew);
             redirectAttributes.addFlashAttribute("succ", "信息修改成功！");

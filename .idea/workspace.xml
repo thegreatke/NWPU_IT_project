@@ -4,14 +4,16 @@
     <list default="true" id="5abb68b0-055c-4f30-8b50-7bdf93a491c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/bean/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/bean/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/bean/Lend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/bean/Lend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/bean/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/bean/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/bean/ReaderCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/bean/ReaderCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/bean/ReaderInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/bean/ReaderInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/bean/delete_list.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/bean/delete_list.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/bean/lib_notice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/bean/lib_notice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/LendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/LendController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/ReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/ReaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/AdminDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/AdminDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/ReaderCardDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/ReaderCardDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MyBatis/admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MyBatis/admin.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -381,7 +383,7 @@
       <updated>1569047688350</updated>
       <workItem from="1569047690540" duration="69000" />
       <workItem from="1569047887454" duration="66000" />
-      <workItem from="1569229289228" duration="6854000" />
+      <workItem from="1569229289228" duration="7960000" />
     </task>
     <servers />
   </component>

@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Admin {
 
-    private long admin_id;
+    private long adminId;
     private String password;
     private String username;
     private int roles;

@@ -10,6 +10,6 @@ public class lib_notice implements Serializable {
 
     private long id;
     private String content;
-    private Date date_time;
+    private Date dateTime;
 
 }

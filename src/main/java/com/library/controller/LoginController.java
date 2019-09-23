@@ -53,7 +53,7 @@ public class LoginController {
         HashMap<String, String> res = new HashMap<>();
         if (isAdmin) {
             Admin admin = new Admin();
-            admin.setAdmin_id(id);
+            admin.setAdminId(id);
             // admin.setadmin_id(id);
             admin.setPassword(passwd);
             admin.setRoles(0);
@@ -65,7 +65,7 @@ public class LoginController {
         }
         else if (isLibrarian) {
             Admin admin = new Admin();
-            admin.setAdmin_id(id);
+            admin.setAdminId(id);
             admin.setPassword(passwd);
             admin.setRoles(1);
             String username = loginService.getLibrarianUsername(id);
@@ -104,7 +104,7 @@ public class LoginController {
     @RequestMapping("/admin_repasswd_do")
     public String reAdminPasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, String reNewPasswd, RedirectAttributes redirectAttributes) {
         Admin admin = (Admin) request.getSession().getAttribute("admin");
-        long id = admin.getAdmin_id();
+        long id = admin.getAdminId();
     //    long id = admin.getAdminId();
         String password = loginService.getAdminPassword(id);
         if (password.equals(oldPasswd)) {
@@ -129,7 +129,7 @@ public class LoginController {
     @RequestMapping("/reader_repasswd_do")
     public String reReaderPasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, String reNewPasswd, RedirectAttributes redirectAttributes) {
         ReaderCard reader = (ReaderCard) request.getSession().getAttribute("readercard");
-        long id = reader.getReader_id();
+        long id = reader.getReaderId();
         //long id = reader.getReaderId();
         String password = loginService.getReaderPassword(id);
         if (password.equals(oldPasswd)) {
