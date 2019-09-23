@@ -2,7 +2,7 @@ package com.library.bean;
 
 import java.io.Serializable;
 
-public class ReaderCard implements Serializable {
+public class ReaderCard implements Serializable {  //Serializable是可序列对象的标识
 
     private long reader_id;
     private String username;

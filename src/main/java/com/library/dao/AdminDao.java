@@ -21,6 +21,7 @@ public class AdminDao {
         return sqlSessionTemplate.selectOne(NAMESPACE + "getMatchCount", paramMap);
     }
 
+    // TODO: 2019/9/23  根据admin分为roles=0的图书管理员和roles = 1 的超级管理员
     public int resetPassword(final long admin_id, final String password) {
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("admin_id", admin_id);
