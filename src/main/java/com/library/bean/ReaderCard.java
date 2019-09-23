@@ -1,34 +1,15 @@
 package com.library.bean;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
+@Data
 public class ReaderCard implements Serializable {  //Serializable是可序列对象的标识
 
     private long reader_id;
     private String username;
     private String password;
+    private long already_lend_num;
 
-    public long getReaderId() {
-        return reader_id;
-    }
-
-    public void setReaderId(long reader_id) {
-        this.reader_id = reader_id;
-    }
-
-    public String getName() {
-        return username;
-    }
-
-    public void setName(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
