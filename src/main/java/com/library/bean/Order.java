@@ -8,11 +8,11 @@ import java.util.Date;
 @Data
 public class Order implements Serializable {
 
-    private long order_id;
-    private long reader_id;
-    private long book_id;
-    private Date order_date;
-    private Date order_date_deadline;
+    private long orderId;
+    private long readerId;
+    private long bookId;
+    private Date orderDate;
+    private Date orderDateDeadline;
 
 }
 

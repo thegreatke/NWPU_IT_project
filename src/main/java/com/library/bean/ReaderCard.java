@@ -7,9 +7,9 @@ import java.io.Serializable;
 @Data
 public class ReaderCard implements Serializable {  //Serializable是可序列对象的标识
 
-    private long reader_id;
+    private long readerId;
     private String username;
     private String password;
-    private long already_lend_num;
+    private long alreadyLendNum;
 
 }
