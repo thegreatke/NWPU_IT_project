@@ -108,4 +108,11 @@ VALUES
 	( 10003, '张明华', '123456' ),
 	( 10004, '李一琛', '123456' ),
 	( 10005, '李二飞', '123456' );
+
+
+CREATE TABLE `librarian` ( `librarian_id` BIGINT NOT NULL PRIMARY KEY, `username` VARCHAR ( 15 ) NOT NULL, `password` VARCHAR ( 15 ) NOT NULL ) ENGINE = INNODB DEFAULT CHARSET = utf8;
+insert into `librarian`
+VALUES
+	( 10000, 'sss', '123456' );
+	
 COMMIT;
