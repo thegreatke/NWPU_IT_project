@@ -7,6 +7,10 @@
         (null, #{type}, #{readerId}, #{value}, #{date_time},
        )
     </insert>
+    <select id="getDayIncome" resultType="com.library.bean.Income" parameterType="Date">
+              select * from income_list where date_time = #{date_time}
+
+    </select>
 
 
 

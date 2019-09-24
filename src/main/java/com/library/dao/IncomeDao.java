@@ -24,16 +24,20 @@ public class IncomeDao {
 
 
     public int addIncome(final Income income) {
-        income.setType(Income.Type.fine);
+//        income.setType(Income.Type.fine);
         return sqlSessionTemplate.insert(NAMESPACE + "addIncome", income);
     }
 
 
-    // TODO: 2019-09-23 返回某一天的所有收入
-    public float getDayIncome(Date  date) {
+    // TODO: 2019-09-23 返回某一天的所有收入记录的list
+    public List<Income> getDayIncome(Date  date) {
 
 
-        return sqlSessionTemplate.insert(NAMESPACE + "addIncome", date);
+        List<Income> incomeArrayList = new ArrayList<Income>();
+        incomeArrayList =  sqlSessionTemplate.selectList(NAMESPACE + "getDayIncome", date);
+
+        return incomeArrayList;
+
     }
 
 
