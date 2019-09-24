@@ -5,7 +5,9 @@ F:\weblibrary\NWPU_IT_project\src\main\java\com\library\service\BookService.java
 F:\weblibrary\NWPU_IT_project\src\main\java\com\library\controller\LoginController.java
 F:\weblibrary\NWPU_IT_project\src\main\java\com\library\service\DeleteBookService.java
 F:\weblibrary\NWPU_IT_project\src\main\java\com\library\bean\lib_notice.java
+F:\weblibrary\NWPU_IT_project\src\main\java\com\library\bean\Income.java
 F:\weblibrary\NWPU_IT_project\src\main\java\com\library\service\LoginService.java
+F:\weblibrary\NWPU_IT_project\src\main\java\com\library\dao\IncomeDao.java
 F:\weblibrary\NWPU_IT_project\src\main\java\com\library\bean\ReaderInfo.java
 F:\weblibrary\NWPU_IT_project\src\main\java\com\library\dao\OrderDao.java
 F:\weblibrary\NWPU_IT_project\src\main\java\com\library\utils\MD5Util.java

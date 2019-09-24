@@ -16,11 +16,10 @@
     <select id="getUsername" resultType="String" parameterType="long">
         select username from admin
         where admin_id = #{admin_id}
-        and roles = #{0}
+        and roles = 0
     </select>
     <select id="getLibraname" resultType="String" parameterType="long">
         select username from admin
         where admin_id = #{admin_id}
-        and roles = #{1}
     </select>
 </mapper>
