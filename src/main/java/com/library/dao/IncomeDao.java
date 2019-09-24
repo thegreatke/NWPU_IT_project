@@ -32,7 +32,6 @@ public class IncomeDao {
     // TODO: 2019-09-23 返回某一天的所有收入记录的list
     public List<Income> getDayIncome(Date  date) {
 
-
         List<Income> incomeArrayList = new ArrayList<Income>();
         incomeArrayList =  sqlSessionTemplate.selectList(NAMESPACE + "getDayIncome", date);
 
