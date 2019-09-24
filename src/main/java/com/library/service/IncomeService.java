@@ -3,12 +3,15 @@ package com.library.service;
 import com.library.bean.Income;
 import com.library.dao.IncomeDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.xml.crypto.Data;
 import java.util.Date;
 
-public class IncomeService {
 
+
+@Service
+public class IncomeService {
 
     // TODO: 2019/9/23  实现管理图书馆的收入记录，保存到数据库的income_list的表中去，实现增删改查
 

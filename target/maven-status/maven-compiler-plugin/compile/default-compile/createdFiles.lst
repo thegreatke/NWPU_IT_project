@@ -1,6 +1,7 @@
-com/library/bean/lib_notice.class
 com/library/dao/DeleteBookDao.class
+com/library/dao/IncomeDao.class
+com/library/controller/IncomeController.class
+com/library/bean/lib_notice.class
 com/library/bean/Income$Type.class
 com/library/bean/delete_list.class
 com/library/bean/Income.class
-com/library/dao/IncomeDao.class

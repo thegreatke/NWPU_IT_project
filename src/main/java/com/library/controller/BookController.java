@@ -6,6 +6,7 @@ import com.library.bean.ReaderCard;
 import com.library.service.BookService;
 import com.library.service.LendService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,36 +29,8 @@ public class BookController {
     private LendService lendService;
 
 
-
-
-
-    @ResponseBody
-    @RequestMapping("/test")
-    public String getTest(Model model){
-        Map map = new HashMap();
-        List<Book> testVos = new ArrayList<>();
-        Book book = new Book();
-        book.setName("fulei");
-        Book book01 = new Book();
-        book01.setName("wangmeng");
-        testVos.add(book);
-        testVos.add(book01);
-        map.put("user", "love");
-        map.put("url", "http://www.baidu.com/");
-        map.put("name", "百度");
-        map.put("testVos", testVos);
-        model.addAllAttributes(map);
-
-        String test = model.toString();
-        return test;
-    }
-
-
-
-
-
     @RequestMapping("/querybook.html")
-    public ModelAndView queryBookDo(String searchWord) {
+    public ModelAndView queryBookDo(@RequestParam("searchWord") String searchWord) {
         if (bookService.matchBook(searchWord)) {
             ArrayList<Book> books = bookService.queryBook(searchWord);
             ModelAndView modelAndView = new ModelAndView("admin_books");
@@ -69,7 +42,7 @@ public class BookController {
     }
 
     @RequestMapping("/reader_querybook_do.html")
-    public ModelAndView readerQueryBookDo(String searchWord) {
+    public ModelAndView readerQueryBookDo( String searchWord) {
         if (bookService.matchBook(searchWord)) {
             ArrayList<Book> books = bookService.queryBook(searchWord);
             ModelAndView modelAndView = new ModelAndView("reader_books");
