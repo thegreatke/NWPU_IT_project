@@ -8,15 +8,16 @@ import java.util.Date;
 @Data
 public class Book implements Serializable {
 
-    private long BookId;
+    private long bookId;
     private String name;
     private String author;
     private String publish;
-    private String Isbn;
+    private String isbn;
     private String introduction;
     private String language;
     private BigDecimal price;
-    private Date Pubdate;
-    private int ClassId;
+    private Date pubdate;
+    private int classId;
     private int number;
+
 }

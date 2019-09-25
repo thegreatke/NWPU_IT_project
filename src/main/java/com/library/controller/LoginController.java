@@ -70,6 +70,13 @@ public class LoginController {
             res.put("stateCode", "1");
             res.put("msg", "超级管理员登陆成功！");
         }
+
+        else if (isReader) {
+            ReaderCard readerCard = loginService.findReaderCardByReaderId(id);
+            request.getSession().setAttribute("readercard", readerCard);
+            res.put("stateCode", "2");
+            res.put("msg", "读者登陆成功！");
+        }
         else if (isLibrarian) {
             Admin admin = new Admin();
             admin.setAdminId(id);
@@ -81,12 +88,7 @@ public class LoginController {
             res.put("stateCode", "3");
             res.put("msg", "图书管理员登陆成功！");
         }
-        else if (isReader) {
-            ReaderCard readerCard = loginService.findReaderCardByReaderId(id);
-            request.getSession().setAttribute("readercard", readerCard);
-            res.put("stateCode", "2");
-            res.put("msg", "读者登陆成功！");
-        } else {
+        else {
             res.put("stateCode", "0");
             res.put("msg", "账号或密码错误！");
         }
