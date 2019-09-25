@@ -17,7 +17,7 @@ public class NoticeService {
         return noticeDao.addNotice(notice) > 0;
     }//返回的int是数据库执行操作后影响的行数
 
-    public lib_notice getNotice(Long noticeId) {
+    public lib_notice getNotice(int noticeId) {
         return noticeDao.getNotice(noticeId);
     }
 
