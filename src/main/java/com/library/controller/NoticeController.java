@@ -20,9 +20,18 @@ public class NoticeController {
 
     @ResponseBody
     @RequestMapping("/getnotice")
-    public String getNotice(@ModelAttribute lib_notice libNotice){
-
-        return "return Notice";
+    public String getNotice(@RequestParam("noticeid") int noticeid,Model model){
+        Map map = new HashMap();
+        lib_notice libNotice=noticeService.getNotice(noticeid);
+        long id = libNotice.getId();
+        Date date =libNotice.getDateTime();
+        String content=libNotice.getContent();
+        map.put("id",id);
+        map.put("date",date);
+        map.put("content",content);
+        model.addAttribute(map);
+        String test = model.toString();
+        return test;
     }
 
 }

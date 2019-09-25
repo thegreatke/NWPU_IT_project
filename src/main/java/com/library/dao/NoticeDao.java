@@ -17,7 +17,7 @@ public class NoticeDao {
         return sqlSessionTemplate.insert(NAMESPACE + "addNotice", notice);
     }
 
-    public lib_notice getNotice(final long noticeId) {
+    public lib_notice getNotice(final int noticeId) {
         return sqlSessionTemplate.selectOne(NAMESPACE + "getNotice", noticeId);
     }
 
