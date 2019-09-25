@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.library.dao.DeleteBookDao">
+    <insert id="addDeleteBook" parameterType="com.library.bean.delete_list">
+        insert into delet_list values
+        (#{admin_id}, #{ISBN}, #{delete_date}, #{delete_type},
+        #{delete_reason})
+    </insert>
+    <update id="editDeleteBook" parameterType="com.library.bean.delete_list">
+
+    </update>
+    <select id="getDeleteList" parameterType="com.library.bean.delete_list">
+        select * from delete_list
+    </select>
+    <select id="getDeleteBook" parameterType="String">
+        select * from delete_list where ISBN = #{ISBN}
+    </select>
+    <delete id="deleteDeleteBook" parameterType="String">
+        delete from delete_list where ISBN = #{ISBN}
+    </delete>
+
 
 
 </mapper>
