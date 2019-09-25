@@ -12,7 +12,6 @@ public class Income {
         fine , deposit
     }
 
-
     private long BookId;
     private Type  type;
     private long readerId;

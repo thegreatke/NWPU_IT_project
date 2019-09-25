@@ -7,11 +7,16 @@
         (null, #{type}, #{readerId}, #{value}, #{date_time},
        )
     </insert>
-    <select id="getDayIncome" resultType="com.library.bean.Income" parameterType="Date">
-              select * from income_list where date_time = #{date_time}
-
+    <!--parameterType="Date"-->
+    <select id="getDayIncome" resultType="com.library.bean.Income" >
+              select * from income_list where date_time = #{date}
     </select>
-
+    <select id="getMonthIncome" resultType="com.library.bean.Income" parameterType="map">
+              select * from income_list   where month(date_time) =#{month} and year(date_time) = #{year};
+    </select>
+    <select id="getYearIncome" resultType="com.library.bean.Income" parameterType="int" >
+              select * from income_list where year(date_time) = #{year}
+    </select>
 
 
 

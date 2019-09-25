@@ -5,9 +5,8 @@ import com.library.dao.IncomeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
-
+import java.util.List;
 
 
 @Service
@@ -26,17 +25,28 @@ public class IncomeService {
     }
 
 
-    // TODO: 2019-09-24  计算得到某天的所有收入
-    public float getOneDayIncome(Date dayDate) {
-
-        float dayIncome = 0;
-        for(Income income:incomeDao.getDayIncome(dayDate)){
-
-            dayIncome += income.getValue();
-
+    public float caculateIncome(List<Income> incomeList){
+        float Income = 0;
+        for(Income income:incomeList){
+            Income += income.getValue();
         }
+        return Income;
+    }
 
-         return dayIncome;
+    // 计算得到某天的所有收入
+    public float getOneDayIncome(Date dayDate) {
+         return caculateIncome(incomeDao.getDayIncome(dayDate));
+    }
+
+
+    // 计算得到某年某月的所有收入
+    public float getMonthIncome(int month, int year) {
+        return caculateIncome(incomeDao.getMonthIncome(month, year));
+    }
+
+    // 计算得到某年的所有收入
+    public float getYearIncome(int year) {
+        return caculateIncome(incomeDao.getYearIncome(year));
     }
 
 }
