@@ -21,6 +21,59 @@ public class IncomeController {
     @Autowired
     IncomeService incomeService;
 
+    @ResponseBody
+    @RequestMapping("/getDayIncome")
+    public String getincome(@RequestParam("day") Date date, Model model){
+        Map map = new HashMap();
+
+        float income = incomeService.getOneDayIncome(date);
+        map.put("test", 123);
+        map.put("income", income);
+
+        model.addAllAttributes(map);
+
+        String test = model.toString();
+        return test;
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/getMonthIncome")
+    public String getMonthIncome(@RequestParam("month") int month,@RequestParam("year") int year, Model model){
+
+        Map map = new HashMap();
+        float income = incomeService.getMonthIncome(month,year);
+        map.put("income", income);
+        model.addAllAttributes(map);
+        String test = model.toString();
+        return test;
+    }
+
+    @ResponseBody
+    @RequestMapping("/getYearIncome")
+    public String getincome(@RequestParam("year") int year, Model model){
+        Map map = new HashMap();
+        float income = incomeService.getYearIncome(year);
+        map.put("income", income);
+        model.addAllAttributes(map);
+        String test = model.toString();
+        return test;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @ResponseBody
@@ -39,26 +92,8 @@ public class IncomeController {
         map.put("name", "百度");
         map.put("testVos", testVos);
         model.addAllAttributes(map);
-
         String test = model.toString();
         return test;
     }
-
-
-    @ResponseBody
-    @RequestMapping("/test")
-    public String getincome(@RequestParam("day") Date date, Model model){
-        Map map = new HashMap();
-
-        float income = incomeService.getOneDayIncome(date);
-        map.put("test", 123);
-        map.put("income", income);
-
-        model.addAllAttributes(map);
-
-        String test = model.toString();
-        return test;
-    }
-
 
 }
