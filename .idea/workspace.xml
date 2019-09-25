@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5abb68b0-055c-4f30-8b50-7bdf93a491c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/notice.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/controller/NoticeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/NoticeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/NoticeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/NoticeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/service/NoticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/service/NoticeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/MyBatis/notice.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MyBatis/notice.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/notice.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/library/service/NoticeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/service/NoticeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/bean/delete_list.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/bean/delete_list.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/dao/DeleteBookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/dao/DeleteBookDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/library/service/DeleteBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/library/service/DeleteBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MyBatis/deletebook.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MyBatis/deletebook.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
