@@ -15,9 +15,10 @@ public class Book implements Serializable {
     private String isbn;
     private String introduction;
     private String language;
-    private BigDecimal price;
+    private float price;
     private Date pubdate;
     private int classId;
     private int number;
+    private String location;
 
 }
