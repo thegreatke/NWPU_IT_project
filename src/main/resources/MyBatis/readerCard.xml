@@ -6,7 +6,7 @@
         reader_id = #{reader_id} and password = #{password}
     </select>
     <select id="findReaderByReaderId" resultType="com.library.bean.ReaderCard" parameterType="long">
-        select * from reader_card where reader_id = #{reader_id}
+        select reader_id as readerId, username as name, password, already_lend as  alreadyLend from reader_card where reader_id = #{reader_id}
     </select>
     <update id="resetPassword">
         update reader_card set password = #{password}

@@ -74,6 +74,9 @@ public class LoginController {
         else if (isReader) {
             ReaderCard readerCard = loginService.findReaderCardByReaderId(id);
             request.getSession().setAttribute("readercard", readerCard);
+
+            System.out.println(readerCard);   //debug
+
             res.put("stateCode", "2");
             res.put("msg", "读者登陆成功！");
         }

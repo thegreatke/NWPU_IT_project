@@ -10,6 +10,6 @@ public class ReaderCard implements Serializable {  //Serializable是可序列对
     private long readerId;
     private String name;
     private String password;
-    private long alreadyLendNum;
+    private int alreadyLend;
 
 }
