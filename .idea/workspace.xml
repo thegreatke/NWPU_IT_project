@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5abb68b0-055c-4f30-8b50-7bdf93a491c2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/DeleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/library/controller/NoticeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/notice.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/service/DeleteBookService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/service/DeleteBookService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/library/service/NoticeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/library/service/NoticeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,9 +34,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Tag Library Descriptor" />
         <option value="spring-beans.schema" />
         <option value="Class" />
+        <option value="HTML File" />
+        <option value="Tag Library Descriptor" />
       </list>
     </option>
   </component>
@@ -59,6 +66,7 @@
   <component name="ProjectId" id="1R8TODB6j22MfCNHLGzuxHNapw7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="nwpu_01" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -141,7 +149,7 @@
       <workItem from="1569229289228" duration="7960000" />
       <workItem from="1569248778511" duration="4129000" />
       <workItem from="1569300770550" duration="928000" />
-      <workItem from="1569378310968" duration="3273000" />
+      <workItem from="1569378310968" duration="9273000" />
     </task>
     <servers />
   </component>
