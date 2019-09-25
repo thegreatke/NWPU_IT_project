@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.library.dao.NoticeDao">
+    <insert id="addNotice" parameterType="com.library.bean.lib_notice">
+        insert into lib_notice values
+        (#{id}, #{content}, #{dateTime})
+    </insert>
+    <select id="getNotce" parameterType="long">
+        select * from lib_notice where id = #{id}
+    </select>
+    <delete id="deleteNotice" parameterType="long">
+        delete from lib_notice where id = #{id}
+    </delete>
+</mapper>
