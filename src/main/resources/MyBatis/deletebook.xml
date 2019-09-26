@@ -4,23 +4,21 @@
     <insert id="addDeleteBook" parameterType="com.library.bean.delete_list">
         insert into delet_list values
         (#{admin_id}, #{ISBN}, #{delete_date}, #{delete_type},
-        #{delete_reason},#{book_id})
+        #{delete_reason})
     </insert>
     <update id="editDeleteBook" parameterType="com.library.bean.delete_list">
 
     </update>
-    <select id="getDeleteList" parameterType="com.library.bean.delete_list" resultType="com.library.bean.delete_list">
+    <select id="getDeleteList" parameterType="com.library.bean.delete_list">
         select * from delete_list
     </select>
-    <select id="getDeleteBook" parameterType="String" resultType="com.library.bean.delete_list">
+    <select id="getDeleteBook" parameterType="String">
         select * from delete_list where ISBN = #{ISBN}
     </select>
     <delete id="deleteDeleteBook" parameterType="String">
         delete from delete_list where ISBN = #{ISBN}
     </delete>
 
-    <select id="getDeleteBookByBookId" parameterType="com.library.bean.delete_list" resultType="com.library.bean.delete_list">
-        select * from delete_list where book_id = #{book_id}
-    </select>
+
 
 </mapper>

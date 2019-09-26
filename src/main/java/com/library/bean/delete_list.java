@@ -16,5 +16,5 @@ public class delete_list implements Serializable {
      */
     private long deleteType;
     private String deleteReason;
-    private int bookId;
+    
 }
