@@ -33,5 +33,9 @@ public class NoticeController {
         String test = model.toString();
         return test;
     }
+    // TODO: 2019-09-26
+    //  1.新增一条公告    传入参数，公告的所有属性除了id，id自动分配， 返回json，装后面的字符串  1.successful add  2.failed。
+    //  2.删除某条公告    传入参数公告id, 返回json，装后面的字符串  1.successful add  2.failed。
+    //  3.编辑某条------------
 
 }

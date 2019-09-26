@@ -81,7 +81,7 @@
             <optional>true</optional>
             <version>1.18.0</version>
         </dependency>
-
+        <!-- alibaba json-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
