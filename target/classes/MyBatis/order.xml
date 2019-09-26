@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.library.dao.OrderDao">
-
-
-<!--写你的接口方法，参考lend.xml-->
-
-
-
-
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.library.dao.OrderDao">
+    <insert id="addOrderBook">
+        insert into order_list values
+        (NULL, #{book_id} , #{reader_id} , sysdate() ,calender.add(sysdate(),30))
+    </insert>
+    <update id="updateOrderBook" parameterType="long">
+        update book_info set number = number - 1 where book_id = #{book_id}
+    </update>
+    <select id="orderList" resultType="com.library.bean.Order">
+        select * from order_list
+    </select>
+    <select id="myOrderList" resultType="com.library.bean.Order" parameterType="long">
+        select * from order_list where reader_id = #{reader_id}
+    </select>
+    <delete id="deleteOrder" parameterType="long">
+        delete from order_list where order_id= #{order_id}
+    </delete>
 </mapper>
+
+
+
+
