@@ -1,5 +1,6 @@
 package com.library.dao;
 
+import com.library.bean.Admin;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -44,6 +45,18 @@ public class AdminDao {
 
     public String getLibraname(final long admin_id) {
         return sqlSessionTemplate.selectOne(NAMESPACE + "getLibraname", admin_id);
+    }
+
+    public  final long addLibrarian(final Admin admin){
+        if (sqlSessionTemplate.insert(NAMESPACE+"addLibrarian",admin)>0){
+            return  sqlSessionTemplate.selectOne(NAMESPACE+"getLibrarianId",admin);
+        }else{
+            return -1;
+        }
+    }
+
+    public final int deleteLibrarian(final long admin_id){
+        return sqlSessionTemplate.delete(NAMESPACE+"deleteLibrarian"+admin_id);
     }
 
 }

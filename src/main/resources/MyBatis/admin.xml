@@ -22,4 +22,17 @@
         select username from admin
         where admin_id = #{admin_id}
     </select>
+    <insert id="addLibrarian" parameterType="com.library.bean.Admin">
+        insert into admin values
+        (#{adminId},#{password},#{username},1)
+    </insert>
+    <select id="getLibrarianId" resultType="long" parameterType="com.library.bean.Admin">
+        select admin_id from admin
+        where username = #{username} and password = #{password}
+    </select>
+    <delete id="deleteLibrarian" parameterType="long">
+        delete from admin where admin_id = #{admin_id}
+    </delete>
+
+
 </mapper>
