@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class DeleteController {
     @Autowired
     DeleteBookService deleteBookService;
-// TODO: 2019-09-26   1.返回所有删书记录     返回model
+
 
 
 }

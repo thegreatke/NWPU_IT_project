@@ -24,37 +24,50 @@ public class IncomeController {
 
     @ResponseBody
     @RequestMapping("/getDayIncome")
-    public JSONObject getincome(@RequestParam("day") Date date){
+    public String getincome(@RequestParam("day") Date date, Model model){
+        Map map = new HashMap();
 
-        JSONObject jsonObject = new JSONObject();
         float income = incomeService.getOneDayIncome(date);
-        jsonObject.put("income", income);
+        map.put("test", 123);
+        map.put("income", income);
 
-        return jsonObject;
+        model.addAllAttributes(map);
+
+        String test = model.toString();
+        return test;
     }
 
 
     @ResponseBody
     @RequestMapping("/getMonthIncome")
-    public JSONObject getMonthIncome(@RequestParam("month") int month,@RequestParam("year") int year){
+    public String getMonthIncome(@RequestParam("month") int month,@RequestParam("year") int year, Model model){
 
-        JSONObject jsonObject = new JSONObject();
+        Map map = new HashMap();
         float income = incomeService.getMonthIncome(month,year);
-        jsonObject.put("income", income);
-        return jsonObject;
+        map.put("income", income);
+        model.addAllAttributes(map);
+        String test = model.toString();
+        return test;
     }
 
     @ResponseBody
     @RequestMapping("/getYearIncome")
-    public JSONObject getincome(@RequestParam("year") int year, Model model){
-        JSONObject jsonObject = new JSONObject();
+    public String getincome(@RequestParam("year") int year, Model model){
+        Map map = new HashMap();
         float income = incomeService.getYearIncome(year);
-        jsonObject.put("income", income);
-        return jsonObject;
+        map.put("income", income);
+        model.addAllAttributes(map);
+        String test = model.toString();
+        return test;
     }
 
 
-    // TODO: 2019-09-26     day、month、year list   返回model
+
+
+
+
+
+
 
 
 

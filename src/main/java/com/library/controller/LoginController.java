@@ -3,7 +3,6 @@ package com.library.controller;
 import com.library.bean.Admin;
 import com.library.bean.ReaderCard;
 import com.library.service.LoginService;
-import com.sun.xml.internal.bind.v2.TODO;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,10 +58,6 @@ public class LoginController {
         System.out.println(isLibrarian);
         System.out.println(isReader);
 
-
-        // TODO: 2019-09-26  Hide Admin login page 隐藏Admin登录界面(安全性)
-        //  改造此接口，读者和管理员登录的Url不一样，登录的页面样式内容可以不变
-        //
         HashMap<String, String> res = new HashMap<>();
         if (isAdmin) {
             Admin admin = new Admin();
