@@ -1,6 +1,7 @@
 package com.library.controller;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.library.bean.Book;
 import com.library.bean.Income;
 import com.library.service.IncomeService;
@@ -78,8 +79,9 @@ public class IncomeController {
 
     @ResponseBody
     @RequestMapping("/test01")
-    public String getTest(Model model){
+    public JSONObject getTest( ){
         Map map = new HashMap();
+        JSONObject jsonObject = new JSONObject();
         List<Book> testVos = new ArrayList<>();
         Book book = new Book();
         book.setName("fulei");
@@ -90,10 +92,12 @@ public class IncomeController {
         map.put("user", "love");
         map.put("url", "http://www.baidu.com/");
         map.put("name", "百度");
-        map.put("testVos", testVos);
-        model.addAllAttributes(map);
-        String test = model.toString();
-        return test;
+//        map.put("testVos", testVos);
+//        model.addAllAttributes(map);
+//        String test = model.toString();
+        jsonObject.put("test", map);
+
+        return jsonObject;
     }
 
 }
