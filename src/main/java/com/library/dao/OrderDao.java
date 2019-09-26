@@ -26,15 +26,17 @@ public class OrderDao {
     public int updateOrderBook(final long order_id) {
         return sqlSessionTemplate.update(NAMESPACE + "updateOrderBook", order_id);
     }
-
+    //所有 orderlist
     public ArrayList<Order> orderList() {
         List<Order> result = sqlSessionTemplate.selectList(NAMESPACE + "orderList");
         return (ArrayList<Order>) result;
     }
+    //读者自己 orderlist
     public  ArrayList<Order> getAllOrders(final long reader_id) {
         List<Order> result = sqlSessionTemplate.selectList(NAMESPACE + "myOrderList",reader_id);
         return (ArrayList<Order>) result;
     }
+
     public  int deleteOrder(final long order_id) {
         return sqlSessionTemplate.delete(NAMESPACE + "deleteOrder", order_id);
     }
