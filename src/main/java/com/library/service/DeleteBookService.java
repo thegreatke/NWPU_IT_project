@@ -28,6 +28,10 @@ public class DeleteBookService {
         return deleteBookDao.getDeleteBook(ISBN);
     }
 
+    public delete_list getDeleteBookByBookId(int book_id){
+        return deleteBookDao.getDeleteBookByBookId(book_id);
+    }
+
     public boolean editDeleteBook(delete_list deleteBook) {
         return deleteBookDao.editDeleteBook(deleteBook) > 0;
     }

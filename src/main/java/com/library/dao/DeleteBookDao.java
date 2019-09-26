@@ -28,6 +28,11 @@ public class DeleteBookDao {
         return sqlSessionTemplate.selectOne(NAMESPACE + "getDeleteBook", isbn);
     }
 
+    public delete_list getDeleteBookByBookId(final int book_id){
+        return sqlSessionTemplate.selectOne(NAMESPACE + "getDeleteBookByBookId", book_id);
+    }
+
+
     public int editDeleteBook(final delete_list deleteBook) {
         return sqlSessionTemplate.update(NAMESPACE + "editDeleteBook", deleteBook);
     }
