@@ -1,5 +1,6 @@
 package com.library.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.library.bean.Admin;
 import com.library.bean.ReaderCard;
 import com.library.service.LoginService;
@@ -46,8 +47,8 @@ public class LoginController {
     //负责处理loginCheck.html请求
     //请求参数会根据参数名称默认契约自动绑定到相应方法的入参中
     @RequestMapping(value = "/api/loginCheck", method = RequestMethod.POST)
-    public @ResponseBody
-    Object loginCheck(HttpServletRequest request) {
+    @ResponseBody
+    public JSONObject loginCheck(HttpServletRequest request) {
         long id = Long.parseLong(request.getParameter("id"));
         String passwd = request.getParameter("passwd");
         boolean isReader = loginService.hasMatchReader(id, passwd);
@@ -63,7 +64,8 @@ public class LoginController {
         // TODO: 2019-09-26  Hide Admin login page 隐藏Admin登录界面(安全性)
         //  改造此接口，读者和管理员登录的Url不一样，登录的页面样式内容可以不变
         //
-        HashMap<String, String> res = new HashMap<>();
+//        HashMap<String, String> res = new HashMap<>();
+        JSONObject res = new JSONObject();
         if (isAdmin) {
             Admin admin = new Admin();
             admin.setAdminId(id);

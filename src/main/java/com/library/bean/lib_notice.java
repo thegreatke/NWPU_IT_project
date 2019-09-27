@@ -12,4 +12,6 @@ public class lib_notice implements Serializable {
     private String content;
     private Date dateTime;
 
+
+
 }

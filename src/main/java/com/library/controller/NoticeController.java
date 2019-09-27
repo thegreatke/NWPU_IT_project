@@ -38,9 +38,9 @@ public class NoticeController {
     //  1.新增一条公告    传入参数，公告的所有属性除了id，id自动分配， 返回json，装后面的字符串  1.successful add  2.failed。
     //  2.删除某条公告    传入参数公告id, 返回json，装后面的字符串  1.successful add  2.failed。
     //  3.编辑某条------------
-
+    @ResponseBody
     @RequestMapping("/addNotice")
-    public JSONObject addNotice(@RequestParam(value = "notice") lib_notice notice) {
+    public JSONObject addNotice(lib_notice notice) {
         JSONObject jsonObject = new JSONObject();
         if (noticeService.addNotice(notice)) {
             jsonObject.put("succ","successful");
@@ -50,6 +50,7 @@ public class NoticeController {
         return jsonObject;
     }
 
+    @ResponseBody
     @RequestMapping("/deleteNotice")
     public JSONObject deleteNotice(@RequestParam(value = "noticeId") Long noticeId) {
         JSONObject jsonObject = new JSONObject();
@@ -60,7 +61,7 @@ public class NoticeController {
         }
         return jsonObject;
     }
-
+    @ResponseBody
     @RequestMapping("/editNotice")
     public JSONObject editNotice(@RequestParam(value = "notice") lib_notice notice) {
         JSONObject jsonObject = new JSONObject();
