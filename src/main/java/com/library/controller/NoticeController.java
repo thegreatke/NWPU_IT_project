@@ -43,7 +43,7 @@ public class NoticeController {
 
     @ResponseBody
     @RequestMapping("/addNotice")
-    public JSONObject addNotice(@RequestParam(value = "notice") lib_notice notice) {
+    public JSONObject addNotice(lib_notice notice) {
         JSONObject jsonObject = new JSONObject();
         if (noticeService.addNotice(notice)) {
             jsonObject.put("succ","successful");
@@ -55,7 +55,7 @@ public class NoticeController {
 
     @ResponseBody
     @RequestMapping("/deleteNotice")
-    public JSONObject deleteNotice(@RequestParam(value = "noticeId") Long noticeId) {
+    public JSONObject deleteNotice(Long noticeId) {
         JSONObject jsonObject = new JSONObject();
         if (noticeService.deleteNotice(noticeId)) {
             jsonObject.put("succ","successful");
@@ -67,7 +67,7 @@ public class NoticeController {
 
     @ResponseBody
     @RequestMapping("/editNotice")
-    public JSONObject editNotice(@RequestParam(value = "notice") lib_notice notice) {
+    public JSONObject editNotice(lib_notice notice) {
         JSONObject jsonObject = new JSONObject();
         if (noticeService.editNotice(notice)) {
             jsonObject.put("succ","successful");
