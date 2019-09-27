@@ -31,11 +31,19 @@ public class LoginController {
     }
 
 
-    @RequestMapping(value = {"/", "/login.html"})
+    @RequestMapping(value = {"/", "/login"})
     public String toLogin(HttpServletRequest request) {
         request.getSession().invalidate();
         return "index";
     }
+
+    @RequestMapping(value = {"/login_admin_you_cant_find_me_hahaha"})
+    public String toLoginAdmin(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "index_admin";
+    }
+
+
 
     @RequestMapping("/logout.html")
     public String logout(HttpServletRequest request) {
@@ -46,19 +54,16 @@ public class LoginController {
 
     //负责处理loginCheck.html请求
     //请求参数会根据参数名称默认契约自动绑定到相应方法的入参中
-    @RequestMapping(value = "/api/loginCheck", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/loginCheck_admin_you_cant_find_me_hahaha", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject loginCheck(HttpServletRequest request) {
         long id = Long.parseLong(request.getParameter("id"));
         String passwd = request.getParameter("passwd");
-        boolean isReader = loginService.hasMatchReader(id, passwd);
         boolean isAdmin = loginService.hasMatchAdmin(id, passwd);
-
         boolean isLibrarian = loginService.hasMatchLibrarian(id,passwd);
 
         System.out.println(isAdmin);
         System.out.println(isLibrarian);
-        System.out.println(isReader);
 
 
         // TODO: 2019-09-26  Hide Admin login page 隐藏Admin登录界面(安全性)
@@ -77,16 +82,6 @@ public class LoginController {
             res.put("stateCode", "1");
             res.put("msg", "超级管理员登陆成功！");
         }
-
-        else if (isReader) {
-            ReaderCard readerCard = loginService.findReaderCardByReaderId(id);
-            request.getSession().setAttribute("readercard", readerCard);
-
-            System.out.println(readerCard);   //debug
-
-            res.put("stateCode", "2");
-            res.put("msg", "读者登陆成功！");
-        }
         else if (isLibrarian) {
             Admin admin = new Admin();
             admin.setAdminId(id);
@@ -104,6 +99,52 @@ public class LoginController {
         }
         return res;
     }
+
+
+
+    @RequestMapping(value = "/api/loginCheck", method = RequestMethod.POST)
+    @ResponseBody
+    public JSONObject reader_loginCheck(HttpServletRequest request) {
+        long id = Long.parseLong(request.getParameter("id"));
+        String passwd = request.getParameter("passwd");
+        boolean isReader = loginService.hasMatchReader(id, passwd);
+
+        // TODO: 2019-09-26  Hide Admin login page 隐藏Admin登录界面(安全性)
+        //  改造此接口，读者和管理员登录的Url不一样，登录的页面样式内容可以不变
+        //
+//        HashMap<String, String> res = new HashMap<>();
+        JSONObject res = new JSONObject();
+         if (isReader) {
+            ReaderCard readerCard = loginService.findReaderCardByReaderId(id);
+            request.getSession().setAttribute("readercard", readerCard);
+
+            System.out.println(readerCard);   //debug
+
+            res.put("stateCode", "2");
+            res.put("msg", "读者登陆成功！");
+        }
+        else {
+            res.put("stateCode", "0");
+            res.put("msg", "账号或密码错误！");
+        }
+        return res;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @RequestMapping("/admin_main.html")
