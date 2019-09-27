@@ -11,7 +11,7 @@
     </update>
     <insert id="lendBookOne">
         insert into lend_list values
-        (null , #{book_id} , #{reader_id} , sysdate() , null)
+        (null , #{book_id} , #{reader_id} , sysdate() ,null, null, null)
     </insert>
     <update id="lendBookTwo" parameterType="long">
         update book_info set number = number - 1 where book_id = #{book_id}
