@@ -41,6 +41,7 @@ public class NoticeController {
     //  2.删除某条公告    传入参数公告id, 返回json，装后面的字符串  1.successful add  2.failed。
     //  3.编辑某条------------
 
+    @ResponseBody
     @RequestMapping("/addNotice")
     public JSONObject addNotice(@RequestParam(value = "notice") lib_notice notice) {
         JSONObject jsonObject = new JSONObject();
@@ -52,6 +53,7 @@ public class NoticeController {
         return jsonObject;
     }
 
+    @ResponseBody
     @RequestMapping("/deleteNotice")
     public JSONObject deleteNotice(@RequestParam(value = "noticeId") Long noticeId) {
         JSONObject jsonObject = new JSONObject();
@@ -63,6 +65,7 @@ public class NoticeController {
         return jsonObject;
     }
 
+    @ResponseBody
     @RequestMapping("/editNotice")
     public JSONObject editNotice(@RequestParam(value = "notice") lib_notice notice) {
         JSONObject jsonObject = new JSONObject();
@@ -74,6 +77,7 @@ public class NoticeController {
         return jsonObject;
     }
 
+    @ResponseBody
     @RequestMapping("/getAllNotices")
     public ModelAndView getAllNotices(HttpServletRequest request) {
         ArrayList<lib_notice> notices = noticeService.getAllNotices();
