@@ -15,4 +15,10 @@ public class Lend implements Serializable {
     private Date backDateDeadline;
     private long fineMoney;
 
+
+
+
+
+
+
 }

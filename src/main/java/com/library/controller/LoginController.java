@@ -31,6 +31,8 @@ public class LoginController {
 
 
     @RequestMapping(value = {"/", "/login.html"})
+
+
     public String toLogin(HttpServletRequest request) {
         request.getSession().invalidate();
         return "index";
