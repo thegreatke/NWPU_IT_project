@@ -3,17 +3,20 @@ package com.library.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.library.bean.Admin;
+import com.library.bean.Book;
 import com.library.bean.ReaderInfo;
 import com.library.service.AdminService;
 import com.library.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Controller
@@ -51,7 +54,7 @@ public class AdminController {
 
     @ResponseBody
     @RequestMapping("/deleteLibrarian")
-    public JSONObject addlibrarian( @RequestParam("id") long adminId ){
+    public JSONObject deletelibrarian( @RequestParam("id") long adminId ){
 
         JSONObject jsonObject = new JSONObject();
 
@@ -63,8 +66,21 @@ public class AdminController {
             jsonObject.put("succ","删除失败");
         }
         return jsonObject;
-
     }
+
+    @ResponseBody
+    @RequestMapping ("/getAllLibrarian")
+    public String getAll(Model model) {
+
+        ArrayList<Admin> admins = adminService.getAllLibrarian();
+
+        model.addAttribute("Librarian", admins);
+        String res = model.toString();
+        return res;
+    }
+
+
+
 
 
 

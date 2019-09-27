@@ -30,9 +30,13 @@
         select admin_id from admin
         where username = #{username} and password = #{password}
     </select>
-    <delete id="deleteLibrarian" parameterType="long">
+    <delete id="deleteLibrarian" parameterType="long" >
         delete from admin where admin_id = #{admin_id}
     </delete>
+
+    <select id="getAllLibrarian" resultType="com.library.bean.Admin">
+        select * from admin
+    </select>
 
 
 </mapper>

@@ -1,13 +1,19 @@
 package com.library.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.library.bean.ReaderCard;
 import com.library.bean.ReaderInfo;
+import com.library.bean.ReaderInput;
 import com.library.service.LoginService;
 import com.library.service.ReaderCardService;
 import com.library.service.ReaderInfoService;
+import com.library.service.ReaderInputService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -27,6 +33,9 @@ public class ReaderController {
 
     @Autowired
     private ReaderCardService readerCardService;
+
+    @Autowired
+    private ReaderInputService readerInputService;
 
     private ReaderInfo getReaderInfo(long readerId, String name, String sex, String birth, String address, String phone) {
         ReaderInfo readerInfo = new ReaderInfo();
@@ -143,4 +152,76 @@ public class ReaderController {
         }
         return "redirect:/reader_info.html";
     }
+
+
+    private ReaderInput getread(long readId,String name,String username,String password,String sex,Date birth
+    ,String address,String phone,String email){
+        ReaderInput readerInput = new ReaderInput();
+
+        readerInput.setReaderId(readId);
+        readerInput.setName(name);
+        readerInput.setUsername(username);
+        readerInput.setPassword(password);
+        readerInput.setSex(sex);
+        readerInput.setBirth(birth);
+        readerInput.setAddress(address);
+        readerInput.setPhone(phone);
+        readerInput.setEmail(email);
+        return readerInput;
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/addread")
+    public JSONObject addread(long readId,String name,String username,String password,String sex,Date birth
+            ,String address,String phone,String email){
+
+        ReaderInput readerInput = getread(readId,name,username,password,sex,birth
+                ,address, phone,email) ;
+
+
+        JSONObject jsonObject = new JSONObject();
+        if (readerInputService.addRead(readerInput)>0)
+        {
+            jsonObject.put("succ","成功");
+        }
+        else{
+            jsonObject.put("succ","失败");
+        }
+        return jsonObject;
+    }
+
+    @ResponseBody
+    @RequestMapping("getread")
+    public String getread(Model model){
+
+       // JSONObject jsonObject = new JSONObject();
+
+        ArrayList<ReaderInput> readerInputs = readerInputService.getAllRead();
+
+        model.addAttribute("reader",readerInputs);
+        String res = model.toString();
+        return res;
+
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/passreader")
+    public JSONObject passread(@RequestParam("id")long readId){
+        JSONObject jsonObject = new JSONObject();
+
+        int nun = readerInputService.inserReader(readId);
+        if(nun>0)
+        {
+            jsonObject.put("succ","成功");
+        }
+        else
+        {
+            jsonObject.put("succ","失败");
+        }
+        return jsonObject;
+    }
+
+
 }

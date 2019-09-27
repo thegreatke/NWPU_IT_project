@@ -23,6 +23,12 @@
         insert into reader_info values
         (null, #{name},#{sex},#{birth},#{address},#{phone})
     </insert>
+
+    <insert id="addReaderInfo2" parameterType="com.library.bean.ReaderInfo">
+        insert into reader_info values
+        (#{readerId},#{name},#{sex},#{birth},#{address},#{phone},#{email})
+    </insert>
+
     <select id="getReaderId" resultType="long" parameterType="com.library.bean.ReaderInfo">
         select reader_id from reader_info where
         name = #{name} and sex = #{sex} and

@@ -30,4 +30,7 @@
     <delete id="deleteBook" parameterType="long">
         delete from book_info where book_id = #{book_id}
     </delete>
+
+
+
 </mapper>

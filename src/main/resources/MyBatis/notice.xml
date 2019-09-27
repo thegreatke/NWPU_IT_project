@@ -11,4 +11,11 @@
     <delete id="deleteNotice" parameterType="long">
         delete from lib_notice where id = #{id}
     </delete>
+    <update id="editNotice" parameterType="com.library.bean.lib_notice">
+        update lib_notice set id = #{id}, content = #{content}, dateTime = #{dateTime}
+        where id = #{id}
+    </update>
+    <select id="getAllNotices" resultType="com.library.bean.lib_notice">
+        select * from lib_notice;
+    </select>
 </mapper>

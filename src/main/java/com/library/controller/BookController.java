@@ -98,6 +98,8 @@ public class BookController {
         return modelAndView;
     }
 
+
+
     @RequestMapping("/book_edit_do.html")
     public String bookEditDo(@RequestParam(value = "pubstr") String pubstr, Book book, RedirectAttributes redirectAttributes) {
         book.setPubdate(getDate(pubstr));
