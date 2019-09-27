@@ -29,7 +29,7 @@ public class OrderController {
     private OrderService orderService;
 
 //    @ResponseBody  //
-    @RequestMapping("/orderlist")
+    @RequestMapping("/orderList")
     public ModelAndView  orderList(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("admin_order_list");
         modelAndView.addObject("list", orderService.orderList());
@@ -37,36 +37,38 @@ public class OrderController {
 //        return orderService.orderList().toString();
         return modelAndView;
     }
-
-    @RequestMapping("/myorder.html")
+      //@ResponseBody
+    @RequestMapping("/myorderList")
     public ModelAndView myOrder(HttpServletRequest request) {
         ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readerCard");
         ModelAndView modelAndView = new ModelAndView("reader_order_list");
         modelAndView.addObject("list", orderService.getAllOrder(readerCard.getReaderId()));
-        return modelAndView;
+       return modelAndView;
     }
 
     @RequestMapping("/overDeadline.html")
     public String overDeadline(HttpServletRequest request, RedirectAttributes redirectAttributes) throws ParseException {
         long book_id = Long.parseLong(request.getParameter("book_id"));
         if (orderService.overDeadline(book_id)) {
-            redirectAttributes.addFlashAttribute("succ", "记录删除成功！");
+            redirectAttributes.addFlashAttribute("succeed", "记录删除成功！");
         } else {
             redirectAttributes.addFlashAttribute("error", "记录删除失败！");
         }
         return "redirect:/orderlist.html";
     }
-    @RequestMapping("/addOrderBook.html")
-    public String addOrderBook(HttpServletRequest request, RedirectAttributes redirectAttributes) {
-        long bookId = Long.parseLong(request.getParameter("bookId"));
-        long readerId = ((ReaderCard) request.getSession().getAttribute("readerCard")).getReaderId();
+    @ResponseBody
+    @RequestMapping("/addOrderBook")
+    public JSONObject  addOrderBook(long bookId,  long readerId) {
+        JSONObject jsonObject = new JSONObject();
+        //long bookId = Long.parseLong(request.getParameter("bookId"));
+        //long readerId = ((ReaderCard) request.getSession().getAttribute("readerCard")).getReaderId();
         //long readerId = ((ReaderCard) request.getSession().getAttribute("readerCard")).getReaderId();
         if (orderService.addOrderBook(bookId, readerId)) {
-            redirectAttributes.addFlashAttribute("succ", "图书预定成功！");
+            jsonObject.put("succeed", "图书预定成功！");
         } else {
-            redirectAttributes.addFlashAttribute("error", "图书预定失败！");
+            jsonObject.put("error", "图书预定失败！");
         }
-        return "redirect:/reader_orders.html";
+        return jsonObject;
     }
 
     @ResponseBody
@@ -78,7 +80,7 @@ public class OrderController {
 //        long readerId = ((ReaderCard) request.getSession().getAttribute("readerCard")).getReaderId();
         //long readerId = ((ReaderCard) request.getSession().getAttribute("readerCard")).getReaderId();
         if (orderService.finishOrder(bookId, readerId)) {
-            jsonObject.put("succ", "图书借阅成功！");
+            jsonObject.put("succeed", "图书借阅成功！");
         } else {
             jsonObject.put("error", "图书借阅失败！");
         }
