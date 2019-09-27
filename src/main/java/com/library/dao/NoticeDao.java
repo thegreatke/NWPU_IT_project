@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class NoticeDao {
@@ -27,5 +29,10 @@ public class NoticeDao {
 
     public int editNotice(final lib_notice notice) {
         return sqlSessionTemplate.update(NAMESPACE + "editNotice", notice);
+    }
+
+    public ArrayList<lib_notice> getAllNotices() {
+        List<lib_notice> result = sqlSessionTemplate.selectList(NAMESPACE + "getAllNotices");
+        return (ArrayList<lib_notice>) result;
     }
 }

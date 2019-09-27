@@ -54,7 +54,7 @@ public class AdminController {
 
     @ResponseBody
     @RequestMapping("/deleteLibrarian")
-    public JSONObject addlibrarian( @RequestParam("id") long adminId ){
+    public JSONObject deletelibrarian( @RequestParam("id") long adminId ){
 
         JSONObject jsonObject = new JSONObject();
 

@@ -5,6 +5,8 @@ import com.library.dao.NoticeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class NoticeService {
 
@@ -27,6 +29,10 @@ public class NoticeService {
 
     public boolean editNotice(lib_notice notice) {
         return noticeDao.editNotice(notice) > 0;
+    }
+
+    public ArrayList<lib_notice> getAllNotices() {
+        return noticeDao.getAllNotices();
     }
 
 
