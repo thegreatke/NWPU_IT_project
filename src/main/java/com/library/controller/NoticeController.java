@@ -77,7 +77,6 @@ public class NoticeController {
         return jsonObject;
     }
 
-    @ResponseBody
     @RequestMapping("/getAllNotices")
     public ModelAndView getAllNotices(HttpServletRequest request) {
         ArrayList<lib_notice> notices = noticeService.getAllNotices();
