@@ -35,6 +35,11 @@ public class LoginController {
         request.getSession().invalidate();
         return "index";
     }
+    @RequestMapping(value = {"/testurl", })
+    public String toLoginTest(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "index";
+    }
 
     @RequestMapping("/logout.html")
     public String logout(HttpServletRequest request) {
