@@ -25,6 +25,10 @@ public class NoticeService {
         return noticeDao.deleteNotice(noticeId) > 0;
     }
 
+    public boolean editNotice(lib_notice notice) {
+        return noticeDao.editNotice(notice) > 0;
+    }
+
 
 
 

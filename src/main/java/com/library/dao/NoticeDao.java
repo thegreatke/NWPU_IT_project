@@ -24,4 +24,8 @@ public class NoticeDao {
     public int deleteNotice(final long noticeId) {
         return sqlSessionTemplate.delete(NAMESPACE + "deleteNotice", noticeId);
     }
+
+    public int editNotice(final lib_notice notice) {
+        return sqlSessionTemplate.update(NAMESPACE + "editNotice", notice);
+    }
 }

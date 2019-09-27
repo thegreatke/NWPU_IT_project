@@ -61,4 +61,15 @@ public class NoticeController {
         return jsonObject;
     }
 
+    @RequestMapping("/editNotice")
+    public JSONObject editNotice(@RequestParam(value = "notice") lib_notice notice) {
+        JSONObject jsonObject = new JSONObject();
+        if (noticeService.editNotice(notice)) {
+            jsonObject.put("succ","successful");
+        } else {
+            jsonObject.put("succ","failed");
+        }
+        return jsonObject;
+    }
+
 }
