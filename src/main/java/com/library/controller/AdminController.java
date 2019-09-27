@@ -68,6 +68,7 @@ public class AdminController {
         return jsonObject;
     }
 
+    @ResponseBody
     @RequestMapping ("/getAllLibrarian")
     public String getAll(Model model) {
 

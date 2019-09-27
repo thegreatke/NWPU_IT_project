@@ -46,4 +46,6 @@ public class BookDao {
     public int deleteBook(final long bookId) {
         return sqlSessionTemplate.delete(NAMESPACE + "deleteBook", bookId);
     }
+
+
 }
