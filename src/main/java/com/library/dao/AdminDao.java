@@ -5,7 +5,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -55,8 +57,14 @@ public class AdminDao {
         }
     }
 
-    public final int deleteLibrarian(final long admin_id){
-        return sqlSessionTemplate.delete(NAMESPACE+"deleteLibrarian"+admin_id);
+    public int deleteLibrarian(long admin_id){
+        return sqlSessionTemplate.delete(NAMESPACE+"deleteLibrarian",admin_id);
+
+    }
+
+    public ArrayList<Admin> getAllLibrarian(){
+        List<Admin> res = sqlSessionTemplate.selectList(NAMESPACE+"getAllLibrarian");
+        return (ArrayList<Admin>) res;
     }
 
 }
