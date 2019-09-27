@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSONObject;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @Controller
@@ -70,6 +72,14 @@ public class NoticeController {
             jsonObject.put("succ","failed");
         }
         return jsonObject;
+    }
+
+    @RequestMapping("/getAllNotices")
+    public ModelAndView getAllNotices(HttpServletRequest request) {
+        ArrayList<lib_notice> notices = noticeService.getAllNotices();
+        ModelAndView modelAndView = new ModelAndView("notice");//注意：jsp中notice仅有一个jsp，此处可能存在错误
+        modelAndView.addObject("notices", notices);
+        return modelAndView;
     }
 
 }
