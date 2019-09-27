@@ -11,6 +11,8 @@
         select * from readerInput
     </select>
 
-
+    <select id="getreadbyid" resultType="com.library.bean.ReaderInput" parameterType="long">
+        select * from readerInput where reader_id = #{readerId}
+    </select>
 
 </mapper>

@@ -43,4 +43,12 @@ public class ReaderInfoDao {
             return -1;
         }
     }
+
+    public final long addReaderInfo2(final ReaderInfo readerInfo) {
+        if (sqlSessionTemplate.insert(NAMESPACE + "addReaderInfo2", readerInfo) > 0) {
+            return sqlSessionTemplate.selectOne(NAMESPACE + "getReaderId", readerInfo);
+        } else {
+            return -1;
+        }
+    }
 }

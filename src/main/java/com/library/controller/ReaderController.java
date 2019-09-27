@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -194,16 +195,33 @@ public class ReaderController {
     @RequestMapping("getread")
     public String getread(Model model){
 
-        JSONObject jsonObject = new JSONObject();
+       // JSONObject jsonObject = new JSONObject();
 
         ArrayList<ReaderInput> readerInputs = readerInputService.getAllRead();
 
+        model.addAttribute("reader",readerInputs);
         String res = model.toString();
         return res;
 
-
     }
 
+
+    @ResponseBody
+    @RequestMapping("/passreader")
+    public JSONObject passread(@RequestParam("id")long readId){
+        JSONObject jsonObject = new JSONObject();
+
+        int nun = readerInputService.inserReader(readId);
+        if(nun>0)
+        {
+            jsonObject.put("succ","成功");
+        }
+        else
+        {
+            jsonObject.put("succ","失败");
+        }
+        return jsonObject;
+    }
 
 
 }

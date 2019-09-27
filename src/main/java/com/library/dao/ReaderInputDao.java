@@ -17,17 +17,22 @@ public class ReaderInputDao {
     @Resource
     private SqlSessionTemplate sqlSessionTemplate;
 
-    public ArrayList<ReaderInput> getAllLibrarian(){
+    public ArrayList<ReaderInput> getAllReader(){
         List<ReaderInput> res = sqlSessionTemplate.selectList(NAMESPACE+"getread");
         return (ArrayList<ReaderInput>) res;
     }
 
-    public  final int addLibrarian(final ReaderInput read){
+    public  final int addReader(final ReaderInput read){
         if (sqlSessionTemplate.insert(NAMESPACE+"addread",read)>0){
             return  1;
         }else{
             return -1;
         }
     }
+
+    public ReaderInput getReaderByid(long readerId){
+        return sqlSessionTemplate.selectOne(NAMESPACE+"getreadbyid",readerId);
+    }
+
 
 }
