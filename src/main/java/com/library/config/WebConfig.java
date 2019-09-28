@@ -3,6 +3,8 @@ package com.library.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -21,6 +23,17 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         resolver.setPrefix("/WEB-INF/jsp/"); //添加了视图解析的前缀位置
         resolver.setSuffix(".jsp");
         return resolver;
+    }
+
+    @Bean
+    public MailSender mailSender(){
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost("smtp.qq.com");
+        mailSender.setPort(Integer.parseInt("465"));
+        mailSender.setProtocol("smtp");
+        mailSender.setUsername("731901617@qq.com");
+        mailSender.setPassword("pvdcxltlkkuhbcjb");
+        return mailSender;
     }
 
     @Override
