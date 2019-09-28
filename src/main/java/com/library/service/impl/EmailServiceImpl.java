@@ -14,8 +14,10 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 import com.library.bean.Mail;
+import com.library.dao.ReaderCardDao;
 import com.library.service.EmailService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
@@ -37,6 +39,9 @@ public class EmailServiceImpl implements EmailService {
     @Resource
     private SimpleMailMessage simpleMailMessage;
 
+    @Autowired
+    ReaderCardDao readerCardDao;
+
     @Override
     public void emailManage(){
         Mail mail = new Mail();
@@ -46,7 +51,7 @@ public class EmailServiceImpl implements EmailService {
         //附件
         Map<String, String> attachments = new HashMap<String, String>();
         attachments.put("清单.xlsx",excelPath+"清单.xlsx");
-        mail.setAttachments(attachments);
+       // mail.setAttachments(attachments);
 
         //内容
         StringBuilder builder = new StringBuilder();

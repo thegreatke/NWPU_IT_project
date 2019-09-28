@@ -28,7 +28,7 @@ public class MailController {
 
     private static final Logger logger = LoggerFactory.getLogger(MailController.class);
 
-
+    @ResponseBody
     @RequestMapping("/sendEmailTask")
     public void sendEmailTask() {
         logger.info("-------------执行发送邮件START---------------");
