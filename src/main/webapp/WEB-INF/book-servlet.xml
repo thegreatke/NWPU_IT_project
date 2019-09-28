@@ -24,7 +24,14 @@
                 </property>
             </bean>
         </mvc:message-converters>
+
     </mvc:annotation-driven>
+
+    <!--<mvc:annotation-driven />-->
+    <!--<mvc:resources location="/img/" mapping="/img/**"/>-->
+    <!--<mvc:resources location="/js/" mapping="/js/**"/>-->
+    <!--<mvc:resources location="/css/" mapping="/css/**"/>-->
+
     <!-- 配置视图解析器，将ModelAndView及字符串解析为具体的页面 -->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver"

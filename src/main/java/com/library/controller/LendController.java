@@ -39,7 +39,7 @@ public class LendController {
 
     @RequestMapping("/mylend.html")
     public ModelAndView myLend(HttpServletRequest request) {
-        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readerCard");
         ModelAndView modelAndView = new ModelAndView("reader_lend_list");
 
         modelAndView.addObject("list", lendService.myLendList(readerCard.getReaderId()));
@@ -58,15 +58,15 @@ public class LendController {
         return "redirect:/lendlist.html";
     }
 
-    @RequestMapping("/lendbook.html")
+    @RequestMapping("/lendBook.html")
     public String bookLend(HttpServletRequest request, RedirectAttributes redirectAttributes) {
         long bookId = Long.parseLong(request.getParameter("bookId"));
-        long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
-        //long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
+        long readerId = ((ReaderCard) request.getSession().getAttribute("readerCard")).getReaderId();
+        //long readerId = ((ReaderCard) request.getSession().getAttribute("readerCard")).getReaderId();
         if (lendService.lendBook(bookId, readerId)) {
             redirectAttributes.addFlashAttribute("succ", "图书借阅成功！");
         } else {
-            redirectAttributes.addFlashAttribute("succ", "图书借阅成功！");
+            redirectAttributes.addFlashAttribute("error", "图书借阅失败！");
         }
         return "redirect:/reader_books.html";
     }
@@ -75,8 +75,8 @@ public class LendController {
     public String bookReturn(HttpServletRequest request, RedirectAttributes redirectAttributes) {
         long bookId = Long.parseLong(request.getParameter("bookId"));
 
-        long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
-//        long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
+        long readerId = ((ReaderCard) request.getSession().getAttribute("readerCard")).getReaderId();
+//        long readerId = ((ReaderCard) request.getSession().getAttribute("readerCard")).getReaderId();
         if (lendService.returnBook(bookId, readerId)) {
             redirectAttributes.addFlashAttribute("succ", "图书归还成功！");
         } else {
