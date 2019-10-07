@@ -13,6 +13,7 @@
 
     <!--配置json-->
     <mvc:annotation-driven>
+
         <mvc:message-converters register-defaults="true">
             <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
                 <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
@@ -24,13 +25,12 @@
                 </property>
             </bean>
         </mvc:message-converters>
-
+        <!--修复静态资源无法访问的bug-->
     </mvc:annotation-driven>
+    <mvc:resources location="/static/js/" mapping="/js/**" />
+    <mvc:resources location="/static/img/" mapping="/img/**" />
+    <mvc:resources location="/static/css/" mapping="/css/**" />
 
-    <!--<mvc:annotation-driven />-->
-    <!--<mvc:resources location="/img/" mapping="/img/**"/>-->
-    <!--<mvc:resources location="/js/" mapping="/js/**"/>-->
-    <!--<mvc:resources location="/css/" mapping="/css/**"/>-->
 
     <!-- 配置视图解析器，将ModelAndView及字符串解析为具体的页面 -->
     <bean
