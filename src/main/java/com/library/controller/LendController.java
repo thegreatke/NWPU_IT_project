@@ -39,7 +39,7 @@ public class LendController {
 
     @RequestMapping("/mylend.html")
     public ModelAndView myLend(HttpServletRequest request) {
-        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readerCard");
+        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readerCard"); // null 未能够获取到session中的 readerCard
         ModelAndView modelAndView = new ModelAndView("reader_lend_list");
 
         modelAndView.addObject("list", lendService.myLendList(readerCard.getReaderId()));

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import com.alibaba.fastjson.JSONObject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
@@ -30,18 +30,25 @@ public class LoginController {
     }
 
 
-    @RequestMapping(value = {"/", "/login.html"})
-
-
+    @RequestMapping(value = {"/", "/login"})
     public String toLogin(HttpServletRequest request) {
         request.getSession().invalidate();
         return "index";
     }
+
+    @RequestMapping(value = {"/login_admin_you_cant_find_me_hahaha"})
+    public String toLoginAdmin(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "index_admin";
+    }
+
+
     @RequestMapping(value = {"/testurl", })
     public String toLoginTest(HttpServletRequest request) {
         request.getSession().invalidate();
         return "index";
     }
+
 
     @RequestMapping("/logout.html")
     public String logout(HttpServletRequest request) {
@@ -52,19 +59,17 @@ public class LoginController {
 
     //负责处理loginCheck.html请求
     //请求参数会根据参数名称默认契约自动绑定到相应方法的入参中
-    @RequestMapping(value = "/api/loginCheck", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/loginCheck_admin_you_cant_find_me_hahaha", method = RequestMethod.POST)
     public @ResponseBody
     Object loginCheck(HttpServletRequest request) {
         long id = Long.parseLong(request.getParameter("id"));
         String passwd = request.getParameter("passwd");
-        boolean isReader = loginService.hasMatchReader(id, passwd);
         boolean isAdmin = loginService.hasMatchAdmin(id, passwd);
 
         boolean isLibrarian = loginService.hasMatchLibrarian(id,passwd);
 
         System.out.println(isAdmin);
         System.out.println(isLibrarian);
-        System.out.println(isReader);
 
 
         // TODO: 2019-09-26  Hide Admin login page 隐藏Admin登录界面(安全性)
@@ -83,15 +88,7 @@ public class LoginController {
             res.put("msg", "超级管理员登陆成功！");
         }
 
-        else if (isReader) {
-            ReaderCard readerCard = loginService.findReaderCardByReaderId(id);
-            request.getSession().setAttribute("readercard", readerCard);
 
-            System.out.println(readerCard);   //debug
-
-            res.put("stateCode", "2");
-            res.put("msg", "读者登陆成功！");
-        }
         else if (isLibrarian) {
             Admin admin = new Admin();
             admin.setAdminId(id);
@@ -109,6 +106,46 @@ public class LoginController {
         }
         return res;
     }
+
+
+
+
+
+
+
+    @RequestMapping(value = "/api/loginCheck", method = RequestMethod.POST)
+    @ResponseBody
+    public JSONObject reader_loginCheck(HttpServletRequest request) {
+        long id = Long.parseLong(request.getParameter("id"));
+        String passwd = request.getParameter("passwd");
+        boolean isReader = loginService.hasMatchReader(id, passwd);
+
+        // TODO: 2019-09-26  Hide Admin login page 隐藏Admin登录界面(安全性)
+        //  改造此接口，读者和管理员登录的Url不一样，登录的页面样式内容可以不变
+        //
+//        HashMap<String, String> res = new HashMap<>();
+        JSONObject res = new JSONObject();
+        if (isReader) {
+            ReaderCard readerCard = loginService.findReaderCardByReaderId(id);
+            request.getSession().setAttribute("readerCard", readerCard);
+
+            System.out.println(readerCard);   //debug
+
+            res.put("stateCode", "2");
+            res.put("msg", "读者登陆成功！");
+        }
+        else {
+            res.put("stateCode", "0");
+            res.put("msg", "账号或密码错误！");
+        }
+        return res;
+    }
+
+
+
+
+
+
 
 
     @RequestMapping("/admin_main.html")
@@ -153,7 +190,7 @@ public class LoginController {
 
     @RequestMapping("/reader_repasswd_do")
     public String reReaderPasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, String reNewPasswd, RedirectAttributes redirectAttributes) {
-        ReaderCard reader = (ReaderCard) request.getSession().getAttribute("readercard");
+        ReaderCard reader = (ReaderCard) request.getSession().getAttribute("readerCard");
         long id = reader.getReaderId();
         //long id = reader.getReaderId();
         String password = loginService.getReaderPassword(id);

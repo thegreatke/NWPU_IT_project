@@ -139,7 +139,7 @@ public class BookController {
     @RequestMapping("/reader_books.html")
     public ModelAndView readerBooks(HttpServletRequest request) {
         ArrayList<Book> books = bookService.getAllBooks();
-        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readerCard");
         ArrayList<Lend> myAllLendList = lendService.myLendList(readerCard.getReaderId());
         ArrayList<Long> myLendList = new ArrayList<>();
         for (Lend lend : myAllLendList) {

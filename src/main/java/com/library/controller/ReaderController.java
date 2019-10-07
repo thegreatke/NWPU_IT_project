@@ -77,7 +77,7 @@ public class ReaderController {
 
     @RequestMapping("/reader_info.html")
     public ModelAndView toReaderInfo(HttpServletRequest request) {
-        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readerCard");
         ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
         //ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
         ModelAndView modelAndView = new ModelAndView("reader_info");
@@ -127,7 +127,7 @@ public class ReaderController {
 
     @RequestMapping("reader_info_edit.html")
     public ModelAndView readerInfoEditReader(HttpServletRequest request) {
-        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readerCard");
 
         ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
         //ReaderInfo readerInfo = readerInfoService.getReaderInfo(readerCard.getReaderId());
@@ -138,14 +138,14 @@ public class ReaderController {
 
     @RequestMapping("reader_edit_do_r.html")
     public String readerInfoEditDoReader(HttpServletRequest request, String name, String sex, String birth, String address, String phone, RedirectAttributes redirectAttributes) {
-        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readercard");
+        ReaderCard readerCard = (ReaderCard) request.getSession().getAttribute("readerCard");
         ReaderInfo readerInfo = getReaderInfo(readerCard.getReaderId(), name, sex, birth, address, phone);
         //ReaderInfo readerInfo = getReaderInfo(readerCard.getReaderId(), name, sex, birth, address, phone);
         if (readerInfoService.editReaderInfo(readerInfo) && readerInfoService.editReaderCard(readerInfo)) {
 
             ReaderCard readerCardNew = loginService.findReaderCardByReaderId(readerCard.getReaderId());
             //ReaderCard readerCardNew = loginService.findReaderCardByReaderId(readerCard.getReaderId());
-            request.getSession().setAttribute("readercard", readerCardNew);
+            request.getSession().setAttribute("readerCard", readerCardNew);
             redirectAttributes.addFlashAttribute("succ", "信息修改成功！");
         } else {
             redirectAttributes.addFlashAttribute("error", "信息修改失败！");
