@@ -68,15 +68,15 @@ public class AdminController {
         return jsonObject;
     }
 
-    @ResponseBody
+//    @ResponseBody
     @RequestMapping ("/getAllLibrarian")
     public String getAll(Model model) {
 
         ArrayList<Admin> admins = adminService.getAllLibrarian();
 
         model.addAttribute("Librarian", admins);
-        String res = model.toString();
-        return res;
+//        String res = model.toString();
+        return "***.jsp";//jsp文件名字填在里面
     }
 
 
