@@ -20,7 +20,7 @@ public class MailController {
     public String sendEmail() throws JsonProcessingException {
         boolean isSend = EmailUtils.sendEmail("这是一封测试邮件", new String[]{"sjysshigh@163.com"}, null, "<h3><a href='http://www.baidu.com'>百度一下，你就知道</a></h3>", null);
         return "发送邮件:" + isSend;
-    }
+    }               
 
 
     @Resource
